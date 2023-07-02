@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-todo-item',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 
 export class TodoItemComponent {
   //Properties for the todo item
-  title = 'Default Tag';
+  @Input() title = 'Default Tag';
   completed = false;
   id = 0;
 }
