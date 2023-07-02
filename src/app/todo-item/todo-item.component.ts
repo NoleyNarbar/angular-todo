@@ -5,6 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })
-export class TodoItemComponent {
 
+export class TodoItemComponent {
+  //Properties for the todo item
+  title = 'Default Tag';
+  completed = false;
+  id = 0;
 }
