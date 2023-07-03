@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { TodoFactory } from './todo/todo-factory';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TodoFactory],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
