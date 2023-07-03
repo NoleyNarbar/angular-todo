@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
-import { TodoFactory } from './todo-factory';
-import { Todo } from '../todo/todo';
+import { ITodo } from '../todo/todo.interface';
+import { OneTimeTodo } from '../todo/one-time-todo.model';
+import { RecurringTodo } from '../todo/recurring-todo.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoFactoryService {
-  constructor(private todoFactory: TodoFactory) {}
+  private todoMappings: { [key: string]: new () => ITodo } = {
+    'one-time': OneTimeTodo,
+    'recurring': RecurringTodo
+  };
 
-  createTodo(todoType: string, title: string, options?: any): Todo {
-    switch (todoType) {
-      case 'one-time':
-        return this.todoFactory.createOneTimeTodo(title, options.dueDate);
-      case 'recurring':
-        return this.todoFactory.createRecurringTodo(title, options.frequency);
-      default:
-        throw new Error('Invalid todo type');
+  createTodo(type: string): ITodo {
+    const TodoClass = this.todoMappings[type];
+    if (TodoClass) {
+      return new TodoClass();
     }
+    // Handle invalid type or default case
+    return null;
   }
 }

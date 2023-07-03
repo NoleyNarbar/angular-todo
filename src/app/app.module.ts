@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
-import { TodoFactory } from './todo/todo-factory';
 
 @NgModule({
   declarations: [
@@ -20,7 +17,7 @@ import { TodoFactory } from './todo/todo-factory';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [TodoFactory],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
